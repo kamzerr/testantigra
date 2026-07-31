@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VILLA KOMO | Ingénierie Résidentielle & Architecture d'Exception</title>
+  <meta name="description" content="VILLA KOMO - Entreprise d'ingénierie architecturale et de construction d'exception. Conception de villas contemporaines haut de gamme sur-mesure.">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+</head>
+<body>
+
+  <!-- Background Radial Glow Effects -->
+  <div class="ambient-glow"></div>
+
+  <!-- Luxury Preloader -->
+  <div id="preloader">
+    <div class="loader-brand">VILLA KOMO</div>
+    <div class="loader-bar-container">
+      <div class="loader-bar" id="load-bar"></div>
+    </div>
+    <div class="loader-status" id="load-text">Initialisation des 240 structures... <span id="load-percent">0%</span></div>
+  </div>
+
+  <!-- Fixed Apple-Style Glass Navbar -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-brand">
+      <span class="nav-logo-text">VILLA KOMO</span>
+      <span class="nav-badge">Ingénierie</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#structure" class="nav-link">Structure</a></li>
+      <li><a href="#ingenierie" class="nav-link">Ingénierie</a></li>
+      <li><a href="#materiaux" class="nav-link">Matériaux</a></li>
+      <li><a href="#realisations" class="nav-link">Réalisations</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="btn-primary" id="nav-cta-btn">
+      <span>Démarrer un projet</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </nav>
+
+  <!-- Fixed Scrollytelling Canvas Viewport -->
+  <div class="canvas-container">
+    <canvas id="scrolly-canvas"></canvas>
+  </div>
+
+  <!-- Floating Dynamic Badges Overlay (Target Reticles) -->
+  <div class="floating-badge" id="badge-ipn" style="top: 32%; left: 18%;">
+    <div class="badge-reticle"></div>
+    <div>
+      <div class="badge-label">Acier IPN 320</div>
+      <div class="badge-value">Charge adm. 450 kN/m²</div>
+    </div>
+  </div>
+
+  <div class="floating-badge" id="badge-foundation" style="top: 68%; right: 20%;">
+    <div class="badge-reticle"></div>
+    <div>
+      <div class="badge-label">Ancrage Géotechnique</div>
+      <div class="badge-value">Béton Armé C50/60</div>
+    </div>
+  </div>
+
+  <div class="floating-badge" id="badge-thermal" style="top: 45%; left: 72%;">
+    <div class="badge-reticle"></div>
+    <div>
+      <div class="badge-label">Pont Thermique R=9.2</div>
+      <div class="badge-value">Isolation Biosourcée</div>
+    </div>
+  </div>
+
+  <!-- 5-Step Scrollytelling Narrative Layer -->
+  <div class="scroll-story-wrapper" id="story-wrapper">
+
+    <!-- Step 1: 0% to 15% - Hero Cinematic Introduction -->
+    <div class="story-step step-center" id="step-1">
+      <div class="editorial-card hero-card">
+        <div class="tag-subtitle">Ingénierie Résidentielle de Haute Précision</div>
+        <h1 class="hero-title">VILLA KOMO</h1>
+        <div class="hero-subhead">L'ingénierie invisible. L'architecture révélée.</div>
+        <p class="body-text">
+          Ingénierie résidentielle d'exception, conçue pour affronter le temps. Nous érigeons des structures contemporaines où la rigueur industrielle s'associe à la pureté architecturale.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="btn-primary open-consult-modal">
+            <span>Démarrer un projet</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-secondary open-tech-modal">
+            <span>Découvrir la structure</span>
+          </button>
+        </div>
+        <div class="scroll-prompt">
+          <span>Défiler pour déconstruire</span>
+          <div class="scroll-indicator-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: 15% to 40% - Envelope & Steel Skeleton -->
+    <div class="story-step step-left" id="step-2">
+      <div class="editorial-card">
+        <div class="tag-subtitle">Phase 01 // Ossature & Structure</div>
+        <h2 class="section-title">Squelette d'acier & résistance monumentale.</h2>
+        <p class="body-text">
+          Poutres IPN en acier haute densité, maçonnerie de briques monomur à haute inertie et maillage structurel millimétré. Une ossature pensée pour encaisser les charges les plus extrêmes.
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Poutrelles IPN 320mm en acier thermo-traité anti-torsion</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Maçonnerie monomur 37.5cm à inertie thermique optimale</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Maillage structurel calculé pour une durabilité séculaire</span>
+          </li>
+        </ul>
+        <button class="btn-secondary open-tech-modal">
+          <span>Fiche Technique Acier IPN</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 3: 40% to 65% - Foundations & Thermal Envelope -->
+    <div class="story-step step-right" id="step-3">
+      <div class="editorial-card">
+        <div class="tag-subtitle">Phase 02 // Fondations & Thermique</div>
+        <h2 class="section-title">Fondations d'élite & efficacité thermique.</h2>
+        <p class="body-text">
+          Ancrage géotechnique de haute précision. Enveloppe thermique multicouche et isolation biosourcée intégrée. Une structure respirante, hermétique aux éléments et éco-efficiente.
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Ancrage géotechnique profond sur micro-pieux béton armé C50/60</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Rupture totale des ponts thermiques avec coefficient R = 9.2 m².K/W</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Membranes d'étanchéité bio-sourcées & régulation hygrométrique</span>
+          </li>
+        </ul>
+        <button class="btn-secondary open-tech-modal">
+          <span>Inspecter les Fondations</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 4: 65% to 85% - Artisanal Precision & Material Physics -->
+    <div class="story-step step-left" id="step-4">
+      <div class="editorial-card">
+        <div class="tag-subtitle">Phase 03 // Assemblage & Finitions</div>
+        <h2 class="section-title">Précision d'artisanat & finitions pures.</h2>
+        <p class="body-text">
+          Contrôle qualité chirurgical, sélection de matériaux nobles et optimisation des espaces intérieurs. Soulignements invisibles des jonctions acier/verre et caissons acoustiques intégrés.
+        </p>
+        <ul class="bullet-list">
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Jonctions invisibles verre-acier traitées au mastic d'ingénierie</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Chaînage de briques réalisé à la main aux ajustements sub-millimétriques</span>
+          </li>
+          <li class="bullet-item">
+            <span class="bullet-icon">✓</span>
+            <span>Traitement acoustique des planchers avec affaiblissement > 58 dB</span>
+          </li>
+        </ul>
+        <button class="btn-secondary open-tech-modal">
+          <span>Consulter le Cahier Technique</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 5: 85% to 100% - Re-assembly & Final Masterlock CTA -->
+    <div class="story-step step-center" id="step-5">
+      <div class="editorial-card hero-card">
+        <div class="tag-subtitle">Perfection Accomplie</div>
+        <h2 class="hero-title">Habitez l'exceptionnel.</h2>
+        <div class="hero-subhead">VILLA KOMO. Conçue pour l'éternité, bâtie pour la vie.</div>
+        <p class="body-text" style="max-width: 600px; margin: 0 auto 2rem auto;">
+          Chaque projet VILLA KOMO est une œuvre d'art structurelle unique, alliant résistance géotechnique monumentale, performances énergétiques d'avant-garde et esthétique ultra-contemporaine.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <button class="btn-primary open-consult-modal">
+            <span>Démarrer un projet</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-secondary open-tech-modal">
+            <span>Consulter le cahier technique</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Content Section 1: Materials & Engineering Physics -->
+  <section class="content-section" id="materiaux">
+    <div class="section-header">
+      <div class="tag-subtitle">Laboratoire de Physique des Matériaux</div>
+      <h2>Des matériaux à la hauteur des exigences les plus rares.</h2>
+      <p class="body-text">Nous sélectionnons exclusivement des composants haute performance certifiés pour garantir une pérennité intergénérationnelle.</p>
+    </div>
+
+    <div class="materials-grid">
+      <div class="material-card">
+        <div>
+          <div class="material-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="material-name">Acier IPN Haute Densité</h3>
+          <div class="material-spec">Nuance S355J2 // Traitement Thermo-Mécanique</div>
+          <p class="material-desc">Utilisé pour les portées monumentales sans poteaux intermédiaires. Résistance accrue à la flexion et stabilité dimensionnelle sous températures extrêmes.</p>
+        </div>
+      </div>
+
+      <div class="material-card">
+        <div>
+          <div class="material-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+          </div>
+          <h3 class="material-name">Brique Monomur 37.5cm</h3>
+          <div class="material-spec">Terre Cuite Alvéolaire // Inertie Thermique 24h</div>
+          <p class="material-desc">Structure respirante offrant un confort d'été imbattable sans climatisation et une isolation d'hiver naturelle sans ponts thermiques.</p>
+        </div>
+      </div>
+
+      <div class="material-card">
+        <div>
+          <div class="material-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="material-name">Béton Armé C50/60</h3>
+          <div class="material-spec">Formulation Auto-Plaçante // Traitement Hydrofuge</div>
+          <p class="material-desc">Armature en acier haute limite élastique noyée dans un béton à très haute durabilité, résistant aux environnements marins et aux glissements de terrain.</p>
+        </div>
+      </div>
+
+      <div class="material-card">
+        <div>
+          <div class="material-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="material-name">Vitrage Structural Triple</h3>
+          <div class="material-spec">Gaz Argon 99.8% // Transmission Lumineuse 82%</div>
+          <p class="material-desc">Baies vitrées toute hauteur montées sur châssis aluminium invisibles motorisés. Isolation phonique d'exception face au bruit urbain.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section 2: Iconic Achievements -->
+  <section class="content-section" id="realisations" style="background-color: var(--bg-dark);">
+    <div class="section-header">
+      <div class="tag-subtitle">Galerie d'Ingénierie</div>
+      <h2>Nos Réalisations d'Exception.</h2>
+      <p class="body-text">Découvrez une sélection de villas privées conçues et bâties selon nos standards de précision absolue.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Villa Orion" class="project-bg">
+        <div class="project-overlay">
+          <div class="project-cat">Cap d'Antibes // 720 m²</div>
+          <h3 class="project-title">Villa Orion</h3>
+          <p class="project-location">Structure IPN console surplombant la Méditerranée.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Résidence Obsidian" class="project-bg">
+        <div class="project-overlay">
+          <div class="project-cat">Genève // 980 m²</div>
+          <h3 class="project-title">Résidence Obsidian</h3>
+          <p class="project-location">Architecture béton brut & baies motorisées de 9m.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Chalet Alpinum" class="project-bg">
+        <div class="project-overlay">
+          <div class="project-cat">Courchevel 1850 // 650 m²</div>
+          <h3 class="project-title">Chalet Alpinum</h3>
+          <p class="project-location">Ossature mixte acier-mélèze & fondations rocheuses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section 3: Engineering Process -->
+  <section class="content-section" id="ingenierie">
+    <div class="section-header">
+      <div class="tag-subtitle">Méthodologie</div>
+      <h2>Du modèle numérique à la livraison clés en main.</h2>
+      <p class="body-text">Un processus sans concession pour transformer des concepts architecturaux audacieux en édifices pérennes.</p>
+    </div>
+
+    <div class="materials-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+      <div class="material-card">
+        <div class="material-spec">Étape 01</div>
+        <h3 class="material-name">Étude Géotechnique</h3>
+        <p class="material-desc">Sondage du sol par carottage et simulation numérique 3D des poussées de terrain sous secousses régionales.</p>
+      </div>
+
+      <div class="material-card">
+        <div class="material-spec">Étape 02</div>
+        <h3 class="material-name">Modélisation BIM 4D</h3>
+        <p class="material-desc">Conception numérique intégrale au millimètre près pour anticiper chaque réservation technique et passage de réseau.</p>
+      </div>
+
+      <div class="material-card">
+        <div class="material-spec">Étape 03</div>
+        <h3 class="material-name">Assemblage Structure</h3>
+        <p class="material-desc">Pré-fabrication industrielle des éléments acier et maçonnerie de briques posée par des maîtres artisans dédiés.</p>
+      </div>
+
+      <div class="material-card">
+        <div class="material-spec">Étape 04</div>
+        <h3 class="material-name">Livraison & Garanties</h3>
+        <p class="material-desc">Contrôle thermique par thermographie infrarouge, certification Passivhaus et garantie décennale renforcée.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal 1: Interactive Project Start Calculator -->
+  <div class="modal-backdrop" id="consult-modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" class="close-modal">&times;</button>
+      <div class="tag-subtitle">Espace Projet Privé</div>
+      <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Initialisez votre Villa VILLA KOMO</h2>
+      <p class="body-text" style="font-size: 0.9rem; margin-bottom: 2rem;">Remplissez les informations ci-dessous pour planifier une consultation confidentielle avec notre directeur de l'ingénierie.</p>
+
+      <form id="consult-form" onsubmit="event.preventDefault(); alert('Votre demande de consultation VILLA KOMO a été enregistrée avec succès. Notre équipe d\'ingénierie vous contactera sous 24h.'); document.getElementById('consult-modal').classList.remove('active');">
+        <div class="form-group">
+          <label class="form-label">Nom Complet</label>
+          <input type="text" class="form-input" placeholder="ex: Jean de Saint-Germain" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Adresse Email</label>
+            <input type="email" class="form-input" placeholder="nom@domaine.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Téléphone Direct</label>
+            <input type="tel" class="form-input" placeholder="+33 6 00 00 00 00" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Surface Habitable Envisagée (m²)</label>
+          <input type="range" min="300" max="2500" step="50" value="750" id="surface-range" style="width: 100%; accent-color: var(--accent-bronze);">
+          <div class="budget-display"><span id="surface-val">750</span> m²</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Budget Global Estimé</label>
+          <select class="form-select">
+            <option>2.5M€ — 5.0M€</option>
+            <option>5.0M€ — 10.0M€</option>
+            <option>10.0M€ et plus (Super-Villa)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Localisation du Terrain</label>
+          <input type="text" class="form-input" placeholder="ex: Cap Ferrat, Suisse, Saint-Tropez, Paris...">
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">
+          <span>Soumettre le Cahier des Charges Initial</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Technical Specifications Blueprint Modal -->
+  <div class="modal-backdrop" id="tech-modal">
+    <div class="modal-window" style="max-width: 800px;">
+      <button class="modal-close-btn" class="close-modal">&times;</button>
+      <div class="tag-subtitle">Spécifications Techniques</div>
+      <h2 style="font-size: 1.75rem; margin-bottom: 1.5rem;">Cahier des Charges Ingénierie</h2>
+
+      <div class="spec-tabs">
+        <button class="spec-tab-btn active" data-tab="tab-steel">Ossature Acier</button>
+        <button class="spec-tab-btn" data-tab="tab-thermal">Thermique & Isolation</button>
+        <button class="spec-tab-btn" data-tab="tab-foundation">Fondations & Béton</button>
+      </div>
+
+      <div class="spec-tab-content active" id="tab-steel">
+        <table class="spec-table">
+          <tr><td>Profilés Principaux</td><td>Poutres IPN 320mm / HEB 280mm</td></tr>
+          <tr><td>Nuance d'Acier</td><td>S355J2+N Haute Limite Élastique</td></tr>
+          <tr><td>Assemblages</td><td>Boulonnage HR grade 10.9 & Soudure Contrôlée US</td></tr>
+          <tr><td>Protection Anticorrosion</td><td>Galvanisation à chaud + Peinture Intumescente R60</td></tr>
+          <tr><td>Tolérance Dimensionnelle</td><td>± 0.8 mm sur portée de 18 mètres</td></tr>
+        </table>
+      </div>
+
+      <div class="spec-tab-content" id="tab-thermal">
+        <table class="spec-table">
+          <tr><td>Coefficient d'Isolation Mur</td><td>R = 9.25 m².K/W (Norme Passivhaus)</td></tr>
+          <tr><td>Monomur Terre Cuite</td><td>Épaisseur 37.5cm à perforations décalées</td></tr>
+          <tr><td>Vitrage Acoustique</td><td>Triple Feuilleté 44.2 / Argon 16mm / Low-E</td></tr>
+          <tr><td>Étanchéité à l'Air</td><td>Q4Pa_surf &lt; 0.12 m³/(h.m²)</td></tr>
+          <tr><td>Déphasage Thermique</td><td>14 heures 45 minutes</td></tr>
+        </table>
+      </div>
+
+      <div class="spec-tab-content" id="tab-foundation">
+        <table class="spec-table">
+          <tr><td>Classe de Béton Structure</td><td>C50/60 XF4 (Résistance Glace & Sels)</td></tr>
+          <tr><td>Armatures Acier</td><td>B500B Haute Adhérence FeE500</td></tr>
+          <tr><td>Système de Fondations</td><td>Inclusion Rigide / Pieux Forés Ø 600mm</td></tr>
+          <tr><td>Cuvelage Sous-Sol</td><td>Membrane Bentofix Autocolmatante</td></tr>
+          <tr><td>Norme Sismique</td><td>Eurocode 8 - Zone 4 Résistance Accrue</td></tr>
+        </table>
+      </div>
+
+      <button class="btn-primary open-consult-modal" style="margin-top: 2rem; width: 100%;">
+        <span>Demander une analyse géotechnique sur-mesure</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Luxury Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">VILLA KOMO</div>
+        <p class="footer-desc">
+          Bureaux d'ingénierie et de construction d'exception. Conception de résidences contemporaines à la structure immortelle.
+        </p>
+      </div>
+
+      <div class="footer-cols">
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="#step-1">Accueil</a></li>
+            <li><a href="#step-2">Structure IPN</a></li>
+            <li><a href="#step-3">Fondations</a></li>
+            <li><a href="#materiaux">Laboratoire Matériaux</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Bureaux</div>
+          <ul class="footer-links">
+            <li><a href="#">Paris // Avenue Montaigne</a></li>
+            <li><a href="#">Genève // Rue du Rhône</a></li>
+            <li><a href="#">Monaco // Boulevard Albert 1er</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Certifications</div>
+          <ul class="footer-links">
+            <li><a href="#">Eurocode 8 Structural</a></li>
+            <li><a href="#">Passivhaus Certified</a></li>
+            <li><a href="#">HQE Exceptionnel</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 VILLA KOMO Architectural Engineering. Tous droits réservés.
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
