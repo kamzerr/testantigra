@@ -35,11 +35,36 @@
       <li><a href="#realisations" class="nav-link">Réalisations</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
-    <button class="btn-primary" id="nav-cta-btn">
-      <span>Démarrer un projet</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </button>
+    <div class="nav-right-group">
+      <button class="btn-primary" id="nav-cta-btn">
+        <span>Démarrer un projet</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu Mobile">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile Glass Drawer Overlay -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <ul class="mobile-nav-links">
+        <li><a href="#step-1" class="mobile-nav-link">Accueil</a></li>
+        <li><a href="#step-2" class="mobile-nav-link">Structure & Acier</a></li>
+        <li><a href="#step-3" class="mobile-nav-link">Fondations</a></li>
+        <li><a href="#materiaux" class="mobile-nav-link">Laboratoire Matériaux</a></li>
+        <li><a href="#realisations" class="mobile-nav-link">Réalisations</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+      <div style="margin-top: 2rem;">
+        <button class="btn-primary open-consult-modal" style="width: 100%;">
+          <span>Démarrer un projet</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Fixed Scrollytelling Canvas Viewport -->
   <div class="canvas-container">

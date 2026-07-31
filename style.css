@@ -155,6 +155,10 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Apple-style Glass Navigation Bar */
@@ -313,8 +317,8 @@ body {
   inset: 0;
   pointer-events: none;
   display: flex;
-  align-items: center;
-  padding: 0 5vw;
+  align-items: flex-end; /* Lower placement keeps upper 70% of canvas visible */
+  padding: 0 6vw 6vh 6vw;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth);
@@ -340,42 +344,36 @@ body {
   justify-content: flex-end;
 }
 
-/* Editorial Glass Cards */
+/* Pure Floating Editorial Text (No Cards, No Box Containers) */
 .editorial-card {
-  max-width: 520px;
-  background: var(--bg-card);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 2.75rem 2.5rem;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  max-width: 460px;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
   position: relative;
-  overflow: hidden;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  overflow: visible;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.95));
 }
 
 .editorial-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-bronze), var(--accent-blue), transparent);
-  opacity: 0.6;
+  display: none;
 }
 
 .editorial-card:hover {
-  border-color: rgba(200, 125, 85, 0.3);
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.7), 0 0 25px rgba(200, 125, 85, 0.1);
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 .editorial-card.hero-card {
-  max-width: 780px;
-  background: rgba(8, 8, 12, 0.65);
-  border-color: rgba(255, 255, 255, 0.12);
-  padding: 3.5rem 3rem;
+  max-width: 680px;
+  background: transparent !important;
+  border-color: transparent !important;
+  padding: 0 !important;
 }
 
 /* Typography Elements */
@@ -401,48 +399,48 @@ body {
 }
 
 .hero-title {
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.05;
   letter-spacing: var(--tracking-tight);
   color: var(--text-white);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   background: linear-gradient(180deg, #FFFFFF 40%, rgba(255, 255, 255, 0.7) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-subhead {
-  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
   font-weight: 400;
   color: var(--accent-copper);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: var(--tracking-tight);
   color: var(--text-white);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
 }
 
 .body-text {
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: var(--text-gray);
   font-weight: 400;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .bullet-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  margin-bottom: 1.75rem;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
 }
 
 .bullet-item {
@@ -935,24 +933,224 @@ body {
   font-size: 0.8rem;
 }
 
-/* Responsive Media Queries */
-@media (max-width: 900px) {
-  .navbar {
-    padding: 1rem 1.5rem;
-  }
-  .nav-links {
-    display: none; /* Mobile menu can be expanded if needed */
-  }
-  .editorial-card {
-    padding: 2rem 1.5rem;
-  }
-  .hero-card {
-    padding: 2.5rem 1.75rem;
+/* Mobile Nav & Drawer Toggle */
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1002;
+  transition: background 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hamburger-line {
+  width: 18px;
+  height: 2px;
+  background: var(--text-white);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* Mobile Drawer Overlay */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(5, 5, 8, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s var(--transition-smooth), visibility 0.4s ease, transform 0.4s var(--transition-smooth);
+}
+
+.mobile-drawer.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-drawer-content {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-nav-link {
+  color: var(--text-white);
+  text-decoration: none;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: color 0.25s ease;
+}
+
+.mobile-nav-link:hover {
+  color: var(--accent-copper);
+}
+
+/* Dynamic Viewport Height Support (Fixes mobile address bar jump) */
+@supports (height: 100dvh) {
+  .canvas-container {
+    height: 100dvh;
   }
   .story-step {
-    padding: 0 1.5rem;
-  }
-  .modal-window {
-    padding: 2rem 1.5rem;
+    height: 100dvh;
   }
 }
+
+/* Responsive Media Queries for Mobile & Tablet */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  #nav-cta-btn span {
+    display: none; /* Icon-only or compact CTA on mobile navbar */
+  }
+
+  #nav-cta-btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Story Steps: Pinned to bottom on mobile so deconstructing villa is visible above */
+  .story-step {
+    padding: 1rem 1rem 2rem 1rem;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+
+  .editorial-card {
+    max-width: 100%;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+  }
+
+  .hero-card {
+    padding: 0 !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 8vw, 3.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subhead {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .body-text {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .bullet-list {
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bullet-item {
+    font-size: 0.85rem;
+  }
+
+  /* Floating Badges re-positioned for narrow mobile screen */
+  .floating-badge {
+    padding: 0.4rem 0.75rem;
+  }
+
+  #badge-ipn {
+    top: 18% !important;
+    left: 6% !important;
+  }
+
+  #badge-foundation {
+    top: 25% !important;
+    right: 6% !important;
+  }
+
+  #badge-thermal {
+    top: 32% !important;
+    left: 8% !important;
+  }
+
+  .badge-label {
+    font-size: 0.68rem;
+  }
+
+  .badge-value {
+    font-size: 0.62rem;
+  }
+
+  .modal-window {
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-md);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .footer-cols {
+    gap: 2.5rem;
+  }
+}
+

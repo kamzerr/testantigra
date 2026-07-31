@@ -78,30 +78,41 @@ function onPreloadComplete() {
   }, 400);
 }
 
-// Canvas Resizing and HDPI Handling
+// High-DPI Canvas Resizing for Native Retina & 4K Resolution
 function resizeCanvas() {
-  const dpr = window.devicePixelRatio || 1;
-  canvas.width = window.innerWidth * dpr;
-  canvas.height = window.innerHeight * dpr;
+  const dpr = Math.max(window.devicePixelRatio || 1, 1);
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+
+  canvas.style.width = `${w}px`;
+  canvas.style.height = `${h}px`;
+
   renderCanvas();
 }
 
 window.addEventListener('resize', resizeCanvas);
 
-// Render current frame with cover aspect ratio logic
+// Render current frame with bicubic smoothing & razor-sharp pixel fitting
 function renderCanvas() {
   if (!frameImages.length) return;
 
   const currentImg = frameImages[Math.round(currentFrameIndex)] || frameImages[0];
   if (!currentImg || !currentImg.complete) return;
 
-  const dpr = window.devicePixelRatio || 1;
   const cw = canvas.width;
   const ch = canvas.height;
 
+  // Clear previous frame
   ctx.clearRect(0, 0, cw, ch);
 
-  // Calculate cover aspect ratio
+  // Enable maximum quality bicubic image smoothing
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+
+  // Calculate aspect ratio fit (cover)
   const imgRatio = currentImg.width / currentImg.height;
   const canvasRatio = cw / ch;
 
@@ -119,7 +130,14 @@ function renderCanvas() {
     drawY = 0;
   }
 
-  ctx.drawImage(currentImg, drawX, drawY, drawW, drawH);
+  // Integer pixel alignment to eliminate sub-pixel blur
+  ctx.drawImage(
+    currentImg,
+    Math.floor(drawX),
+    Math.floor(drawY),
+    Math.ceil(drawW),
+    Math.ceil(drawH)
+  );
 }
 
 // 60FPS RequestAnimationFrame Lerp Loop
@@ -249,6 +267,24 @@ specTabBtns.forEach(btn => {
     document.getElementById(targetTab).classList.add('active');
   });
 });
+
+// Mobile Menu Toggle Logic
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileDrawer = document.getElementById('mobile-drawer');
+
+if (mobileMenuToggle && mobileDrawer) {
+  mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.classList.toggle('active');
+    mobileDrawer.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuToggle.classList.remove('active');
+      mobileDrawer.classList.remove('active');
+    });
+  });
+}
 
 // Initialize Engine
 resizeCanvas();
